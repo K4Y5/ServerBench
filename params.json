@@ -1,6 +1,6 @@
 {
   "name": "Serverbench",
   "tagline": "View basic system information, disk speed along with network performance - tested from multiple locations across the world!",
-  "body": "# ServerBench\r\n## View basic system information, disk speed along with network performance - tested from multiple locations across the world!\r\n### Download the script:\r\n`wget --no-check-certificate https://raw.githubusercontent.com/K4Y5/ServerBench/master/serverbench.sh`\r\n\r\n### Make it executable:\r\n`chmod +x serverbench.sh`\r\n\r\n### Run it!\r\n`./serverbench.sh`\r\n",
+  "body": "# ServerBench\r\n## View basic system information, disk speed along with network performance - tested from multiple locations across the world!\r\n\r\n\r\n### Download the script:\r\n`wget --no-check-certificate https://raw.githubusercontent.com/K4Y5/ServerBench/master/serverbench.sh`\r\n\r\n### Make it executable:\r\n`chmod +x serverbench.sh`\r\n\r\n### Run it!\r\n`./serverbench.sh`\r\n\r\n\r\n*Based on the script by Teddysun*\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
