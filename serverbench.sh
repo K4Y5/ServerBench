@@ -39,77 +39,112 @@ speed_test_v6() {
     fi
 }
 
-speed() {
+speed_cachefly() {
     speed_test 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
+}
+
+speed_vultr() {
     speed_test 'https://hnd-jp-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Tokyo, JP'
-    speed_test 'http://speedtest.tokyo.linode.com/100MB-tokyo.bin' 'Linode, Tokyo, JP'
-    speed_test 'http://speedtest-blr1.digitalocean.com/100mb.test' 'DO, Bangalore, IN'
-    speed_test 'http://speedtest.che01.softlayer.com/downloads/test100.zip' 'Softlayer, Chennai, IN'
     speed_test 'https://sgp-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Singapore, SG'
-    speed_test 'http://speedtest-sgp1.digitalocean.com/100mb.test' 'DO, Singapore, SG'
-    speed_test 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
-    speed_test 'http://speedtest.sng01.softlayer.com/downloads/test100.zip' 'Softlayer, Singapore, SG'
-    speed_test 'http://mirror.sg.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Singapore, SG'
-    speed_test 'http://speedtest.hkg02.softlayer.com/downloads/test100.zip' 'Softlayer, HongKong, CN'
-    speed_test 'http://mirror.hk.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, HongKong, CN'
     speed_test 'https://syd-au-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Sydney, AUS'
-    speed_test 'http://speedtest.syd01.softlayer.com/downloads/test100.zip' 'Softlayer, Sydney, AUS'
-    speed_test 'http://speedtest.mel01.softlayer.com/downloads/test100.zip' 'Softlayer, Melbourne, AUS'
-    speed_test 'http://bck-speedtest-1.tele2.net/100MB.zip' 'Tele2, Gothenberg, SE'
-    speed_test 'http://kst5-speedtest-1.tele2.net/100MB.zip' 'Tele2, Kista, SE'
-    speed_test 'http://speedtest.mil01.softlayer.com/downloads/test100.zip' 'Softlayer, Milan, IT'
-    speed_test 'http://lg-milano.prometeus.net/100MB.test' 'Prometeus, Milan, IT'
-    speed_test 'http://bks-speedtest-1.tele2.net/100MB.zip' 'Tele2, Riga, LV'
-    speed_test 'http://vln038-speedtest-1.tele2.net/100MB.zip' 'Tele2, Vilnius, LT'
-    speed_test 'http://speedtest.as5577.net/1000mb.bin' 'Server.LU, Luxembourg, LU'
-    speed_test 'http://fra36-speedtest-1.tele2.net/100MB.zip' 'Tele2, Frankfurt, DE'
+    speed_test 'https://nj-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, New Jersey, USA'
+    speed_test 'https://il-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Illinois, USA'
+    speed_test 'https://ga-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Atlanta, USA'
+    speed_test 'https://fl-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Miami, USA'
+    speed_test 'https://wa-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Washington, USA'
+    speed_test 'https://tx-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Dallas, USA'
+    speed_test 'https://lax-ca-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Los Angeles, USA'
     speed_test 'https://fra-de-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Frankfurt, DE'
-    speed_test 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
-    speed_test 'http://speedtest.fra02.softlayer.com/downloads/test100.zip' 'Softlayer, Frankfurt, DE'
-    speed_test 'http://mirror.de.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Frankfurt, DE'
-    speed_test 'http://speedtest-fra1.digitalocean.com/100mb.test' 'DO, Frankfurt, DE'
     speed_test 'https://par-fr-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Paris, FR'
-    speed_test 'http://gra.proof.ovh.net/files/100Mb.dat' 'OVH, Gravelines, FR'
-    speed_test 'http://sbg.proof.ovh.net/files/100Mb.dat' 'OVH, Strasbourg, FR'
-    speed_test 'http://rbx.proof.ovh.net/files/100Mb.dat' 'OVH, Roubaix, FR'
-    speed_test 'http://ping.online.net/100Mo.dat' 'Online.Net, Paris, FR'
-    speed_test 'http://ams-speedtest-1.tele2.net/100MB.zip' 'Tele2, Amsterdam, NL'
     speed_test 'https://ams-nl-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Amsterdam, NL'
+    speed_test 'https://lon-gb-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, London, UK'
+}
+
+speed_linnode() {
+    speed_test 'http://speedtest.tokyo.linode.com/100MB-tokyo.bin' 'Linode, Tokyo, JP'
+    speed_test 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
+    speed_test 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
+    speed_test 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
+    speed_test 'http://speedtest.newark.linode.com/100MB-newark.bin' 'Linode, Newark, USA'
+    speed_test 'http://speedtest.atlanta.linode.com/100MB-atlanta.bin' 'Linode, Atlanta, USA'
+    speed_test 'http://speedtest.dallas.linode.com/100MB-dallas.bin' 'Linode, Dallas, USA'
+    speed_test 'http://speedtest.fremont.linode.com/100MB-fremont.bin' 'Linode, Fremont, USA'
+}
+
+speed_digitalocean() {
+    speed_test 'http://speedtest-blr1.digitalocean.com/100mb.test' 'DO, Bangalore, IN'
+    speed_test 'http://speedtest-sgp1.digitalocean.com/100mb.test' 'DO, Singapore, SG'
     speed_test 'http://speedtest-ams2.digitalocean.com/100mb.test' 'DO 2, Amsterdam, NL'
     speed_test 'http://speedtest-ams3.digitalocean.com/100mb.test' 'DO 3, Amsterdam, NL'
-    speed_test 'http://mirror.nl.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Amsterdam, NL'
-    speed_test 'http://mirror.i3d.net/100mb.bin' 'i3d, Amsterdam, NL'
-    speed_test 'https://lon-gb-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, London, UK'
-    speed_test 'http://speedtest-lon1.digitalocean.com/100mb.test' 'DO, London, UK'
-    speed_test 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
-    speed_test 'http://speedtest.lon02.softlayer.com/downloads/test100.zip' 'Softlayer, London, UK'
-    speed_test 'http://speedtest.mex01.softlayer.com/downloads/test100.zip' 'Softlayer, Mexico, MX'
-    speed_test 'http://speedtest.sao01.softlayer.com/downloads/test100.zip' 'Softlayer, Brazil, BR'
     speed_test 'http://speedtest-nyc1.digitalocean.com/100mb.test' 'DO 1, NYC, USA'
     speed_test 'http://speedtest-nyc2.digitalocean.com/100mb.test' 'DO 2, NYC, USA'
     speed_test 'http://speedtest-nyc3.digitalocean.com/100mb.test' 'DO 3, NYC, USA'
-    speed_test 'https://nj-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, New Jersey, USA'
-    speed_test 'http://speedtest.newark.linode.com/100MB-newark.bin' 'Linode, Newark, USA'
-    speed_test 'https://il-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Illinois, USA'
-    speed_test 'https://ga-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Atlanta, USA'
-    speed_test 'http://speedtest.atlanta.linode.com/100MB-atlanta.bin' 'Linode, Atlanta, USA'
-    speed_test 'https://fl-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Miami, USA'
-    speed_test 'https://wa-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Washington, USA'
-    speed_test 'http://speedtest.sea01.softlayer.com/downloads/test100.zip' 'Softlayer, Seattle, USA'
-    speed_test 'http://mirror.wdc1.us.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Washington, USA'
-    speed_test 'https://tx-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Dallas, USA'
-    speed_test 'http://speedtest.dallas.linode.com/100MB-dallas.bin' 'Linode, Dallas, USA'
-    speed_test 'http://speedtest.dal05.softlayer.com/downloads/test100.zip' 'Softlayer, Dallas, USA'
-    speed_test 'http://mirror.dal10.us.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Dallas, USA'
-    speed_test 'https://lax-ca-us-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Los Angeles, USA'
+    speed_test 'http://speedtest-lon1.digitalocean.com/100mb.test' 'DO, London, UK'
     speed_test 'http://speedtest-sfo2.digitalocean.com/100mb.test' 'DO, San Francisco, USA'
     speed_test 'http://speedtest-sfo1.digitalocean.com/100mb.test' 'DO, San Francisco, USA'
-    speed_test 'http://speedtest.fremont.linode.com/100MB-fremont.bin' 'Linode, Fremont, USA'
-    speed_test 'http://mirror.sfo12.us.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, San Francisco, USA'
     speed_test 'http://speedtest-tor1.digitalocean.com/100mb.test' 'DO, Toronto, CA'
-    speed_test 'http://bhs.proof.ovh.net/files/100Mb.dat' 'OVH, Beauharnois, CA'
-    speed_test 'http://speedtest2.eastlink.ca/superlarge.bin' 'EastLink, Canada, CA'
+    speed_test 'http://speedtest-fra1.digitalocean.com/100mb.test' 'DO, Frankfurt, DE'
+}
+
+speed_softlayer() {
+    speed_test 'http://speedtest.che01.softlayer.com/downloads/test100.zip' 'Softlayer, Chennai, IN'
+    speed_test 'http://speedtest.sng01.softlayer.com/downloads/test100.zip' 'Softlayer, Singapore, SG'
+    speed_test 'http://speedtest.hkg02.softlayer.com/downloads/test100.zip' 'Softlayer, HongKong, CN'
+    speed_test 'http://speedtest.syd01.softlayer.com/downloads/test100.zip' 'Softlayer, Sydney, AUS'
+    speed_test 'http://speedtest.mel01.softlayer.com/downloads/test100.zip' 'Softlayer, Melbourne, AUS'
+    speed_test 'http://speedtest.mil01.softlayer.com/downloads/test100.zip' 'Softlayer, Milan, IT'
+    speed_test 'http://speedtest.fra02.softlayer.com/downloads/test100.zip' 'Softlayer, Frankfurt, DE'
+    speed_test 'http://speedtest.lon02.softlayer.com/downloads/test100.zip' 'Softlayer, London, UK'
+    speed_test 'http://speedtest.mex01.softlayer.com/downloads/test100.zip' 'Softlayer, Mexico, MX'
+    speed_test 'http://speedtest.sao01.softlayer.com/downloads/test100.zip' 'Softlayer, Brazil, BR'
+    speed_test 'http://speedtest.sea01.softlayer.com/downloads/test100.zip' 'Softlayer, Seattle, USA'
+    speed_test 'http://speedtest.dal05.softlayer.com/downloads/test100.zip' 'Softlayer, Dallas, USA'
     speed_test 'http://speedtest.mon01.softlayer.com/downloads/test100.zip' 'Softlayer, Montreal, CA'
+}
+
+speed_leaseweb() {
+    speed_test 'http://mirror.sg.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Singapore, SG'
+    speed_test 'http://mirror.hk.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, HongKong, CN'
+    speed_test 'http://mirror.de.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Frankfurt, DE'
+    speed_test 'http://mirror.nl.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Amsterdam, NL'
+    speed_test 'http://mirror.wdc1.us.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Washington, USA'
+    speed_test 'http://mirror.dal10.us.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, Dallas, USA'
+    speed_test 'http://mirror.sfo12.us.leaseweb.net/speedtest/100mb.bin' 'Leaseweb, San Francisco, USA'
+}
+
+speed_tele2(){
+    speed_test 'http://bck-speedtest-1.tele2.net/100MB.zip' 'Tele2, Gothenberg, SE'
+    speed_test 'http://kst5-speedtest-1.tele2.net/100MB.zip' 'Tele2, Kista, SE'
+    speed_test 'http://bks-speedtest-1.tele2.net/100MB.zip' 'Tele2, Riga, LV'
+    speed_test 'http://vln038-speedtest-1.tele2.net/100MB.zip' 'Tele2, Vilnius, LT'
+    speed_test 'http://fra36-speedtest-1.tele2.net/100MB.zip' 'Tele2, Frankfurt, DE'
+    speed_test 'http://ams-speedtest-1.tele2.net/100MB.zip' 'Tele2, Amsterdam, NL'
+}
+
+speed_prometeus(){
+    speed_test 'http://lg-milano.prometeus.net/100MB.test' 'Prometeus, Milan, IT'
+}
+speed_server_lu(){
+  speed_test 'http://speedtest.as5577.net/1000mb.bin' 'Server.LU, Luxembourg, LU'
+}
+
+speed_ovh(){
+    speed_test 'http://gra.proof.ovh.net/files/100Mb.dat' 'OVH, Gravelines, FR'
+    speed_test 'http://sbg.proof.ovh.net/files/100Mb.dat' 'OVH, Strasbourg, FR'
+    speed_test 'http://rbx.proof.ovh.net/files/100Mb.dat' 'OVH, Roubaix, FR'
+    speed_test 'http://bhs.proof.ovh.net/files/100Mb.dat' 'OVH, Beauharnois, CA'
+}
+
+speed_online_net(){
+    speed_test 'http://ping.online.net/100Mo.dat' 'Online.Net, Paris, FR'
+}
+
+speed_id3(){
+    speed_test 'http://mirror.i3d.net/100mb.bin' 'i3d, Amsterdam, NL'
+}
+
+speed_eastlink(){
+    speed_test 'http://speedtest2.eastlink.ca/superlarge.bin' 'EastLink, Canada, CA'
 }
 
 speed_v6() {
@@ -123,11 +158,29 @@ speed_v6() {
     speed_test_v6 'http://speedtest.tok02.softlayer.com/downloads/test100.zip' 'Softlayer, Tokyo, JP'
 }
 
+speed() {
+    #Sorted Alphabetically
+    speed_cachefly
+    speed_eastlink
+    speed_id3
+    speed_leaseweb
+    speed_leaseweb
+    speed_linnode
+    speed_online_net
+    speed_ovh
+    speed_prometeus
+    speed_server_lu
+    speed_softlayer
+    speed_tele2
+    speed_vultr
+}
+
+
 io_test() {
     (LANG=en_US dd if=/dev/zero of=test_$$ bs=64k count=16k conv=fdatasync && rm -f test_$$ ) 2>&1 | awk -F, '{io=$NF} END { print io}' | sed 's/^[ \t]*//;s/[ \t]*$//'
 }
-
-if  [ -e '/usr/bin/wget' ]; then
+wg=$(which wget)
+if  [ -n $wg ]; then
     cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
     cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
     freq=$( awk -F: '/cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
