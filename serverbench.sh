@@ -11,7 +11,8 @@ next() {
 
 speed_test() {
     speedtest=$(wget -4O /dev/null -T300 $1 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}')
-    ipaddress=$(ping -c1 -n `awk -F'/' '{print $3}' <<< $1` | awk -F'[()]' '{print $2;exit}')
+    #ipaddress=$(ping -c1 -n `awk -F'/' '{print $3}' <<< $1` | awk -F'[()]' '{print $2;exit}')
+    ipaddress="127.0.0.1"
     nodeName=$2
     if   [ "${#nodeName}" -lt "8" ]; then
         echo -e "\e[33m$2\e[0m\t\t\t\t\e[32m$ipaddress\e[0m\t\t\e[31m$speedtest\e[0m"
@@ -163,7 +164,6 @@ speed() {
     speed_cachefly
     speed_eastlink
     speed_id3
-    speed_leaseweb
     speed_leaseweb
     speed_linnode
     speed_online_net
