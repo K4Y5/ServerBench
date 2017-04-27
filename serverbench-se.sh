@@ -39,10 +39,16 @@ speed_test_v6() {
     fi
 }
 
-speed() {
-    speed_test 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
-    speed_test 'http://bck-speedtest-1.tele2.net/100MB.zip' 'Tele2, Gothenberg, SE'
+speed_sweden() {
+    speed_test 'http://bck-speedtest-1.tele2.net/100MB.zip' 'Tele2, Göteborg, SE'
     speed_test 'http://kst5-speedtest-1.tele2.net/100MB.zip' 'Tele2, Kista, SE'
+    speed_test 'http://speedtest.bahnhof.net/100M.zip' 'Bahnhof, Malmö, SE'
+    speed_test 'http://mirror.sth.hosthatch.com/100mb.bin' 'Hosthatch, Stockholm, SE'
+    speed_test 'http://fbg-speedtest1.glesys.net/100M.zip' 'Glesys, Falkenberg, SE'
+    #speed_test 'https://speedtest.ownit.se/1GB.test' 'Ownit, ???, SE'
+}
+
+speed_europe() {
     speed_test 'http://bks-speedtest-1.tele2.net/100MB.zip' 'Tele2, Riga, LV'
     speed_test 'http://vln038-speedtest-1.tele2.net/100MB.zip' 'Tele2, Vilnius, LT'
     speed_test 'http://speedtest.as5577.net/1000mb.bin' 'Server.LU, Luxembourg, LU'
@@ -67,6 +73,9 @@ speed() {
     speed_test 'http://speedtest-lon1.digitalocean.com/100mb.test' 'DO, London, UK'
     speed_test 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
     speed_test 'http://speedtest.lon02.softlayer.com/downloads/test100.zip' 'Softlayer, London, UK'
+}
+
+speed_us() {
     speed_test 'http://speedtest-nyc1.digitalocean.com/100mb.test' 'DO 1, NYC, USA'
     speed_test 'http://speedtest-nyc2.digitalocean.com/100mb.test' 'DO 2, NYC, USA'
     speed_test 'http://speedtest-nyc3.digitalocean.com/100mb.test' 'DO 3, NYC, USA'
@@ -94,30 +103,39 @@ speed() {
     speed_test 'http://speedtest.mon01.softlayer.com/downloads/test100.zip' 'Softlayer, Montreal, CA'
 }
 
-speed_v6() {
+speed_cdn() {
+    speed_test 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
+}
+
+speed_europe_v6() {
+    speed_test_v6 'http://speedtest.par01.softlayer.com/downloads/test100.zip' 'Softlayer, Paris, FR'
+    #speed_test 'https://speedtest6.ownit.se/1GB.test' 'Ownit, ???, SE'
+}
+
+speed_use_v6() {
     speed_test_v6 'http://speedtest.atlanta.linode.com/100MB-atlanta.bin' 'Linode, Atlanta, GA'
     speed_test_v6 'http://speedtest.dallas.linode.com/100MB-dallas.bin' 'Linode, Dallas, TX'
     speed_test_v6 'http://speedtest.newark.linode.com/100MB-newark.bin' 'Linode, Newark, NJ'
-    speed_test_v6 'http://speedtest.par01.softlayer.com/downloads/test100.zip' 'Softlayer, Paris, FR'
 }
 
 io_test() {
     (LANG=en_US dd if=/dev/zero of=test_$$ bs=64k count=16k conv=fdatasync && rm -f test_$$ ) 2>&1 | awk -F, '{io=$NF} END { print io}' | sed 's/^[ \t]*//;s/[ \t]*$//'
 }
 
+cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
+cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
+freq=$( awk -F: '/cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
+tram=$( free -m | awk '/Mem/ {print $2}' )
+swap=$( free -m | awk '/Swap/ {print $2}' )
+up=$( awk '{a=$1/86400;b=($1%86400)/3600;c=($1%3600)/60;d=$1%60} {printf("%ddays, %d:%d:%d\n",a,b,c,d)}' /proc/uptime )
+load=$( w | head -1 | awk -F'load average:' '{print $2}' | sed 's/^[ \t]*//;s/[ \t]*$//' )
+opsy=$( get_opsy )
+arch=$( uname -m )
+lbit=$( getconf LONG_BIT )
+host=$( hostname )
+kern=$( uname -r )
+
 if  [ -e '/usr/bin/wget' ]; then
-    cname=$( awk -F: '/model name/ {name=$2} END {print name}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
-    cores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo )
-    freq=$( awk -F: '/cpu MHz/ {freq=$2} END {print freq}' /proc/cpuinfo | sed 's/^[ \t]*//;s/[ \t]*$//' )
-    tram=$( free -m | awk '/Mem/ {print $2}' )
-    swap=$( free -m | awk '/Swap/ {print $2}' )
-    up=$( awk '{a=$1/86400;b=($1%86400)/3600;c=($1%3600)/60;d=$1%60} {printf("%ddays, %d:%d:%d\n",a,b,c,d)}' /proc/uptime )
-    load=$( w | head -1 | awk -F'load average:' '{print $2}' | sed 's/^[ \t]*//;s/[ \t]*$//' )
-    opsy=$( get_opsy )
-    arch=$( uname -m )
-    lbit=$( getconf LONG_BIT )
-    host=$( hostname )
-    kern=$( uname -r )
     ipv6=$( wget -qO- -t1 -T2 ipv6.icanhazip.com )
 
     clear
@@ -135,11 +153,11 @@ if  [ -e '/usr/bin/wget' ]; then
     next
 
     echo -e "Node Name\t\t\tIPv4 address\t\tDownload Speed"
-    speed && next
-    if [[ "$ipv6" != "" ]]; then
-        echo -e "Node Name\t\t\tIPv6 address\t\tDownload Speed"
-        speed_v6 && next
-    fi
+    speed_sweden && next
+#    if [[ "$ipv6" != "" ]]; then
+#        echo -e "Node Name\t\t\tIPv6 address\t\tDownload Speed"
+#        speed_v6 && next
+#    fi
 else
     echo "Error: wget command not found. You must be install wget command at first."
     exit 1
