@@ -1,5 +1,5 @@
 # ServerBench
-## View basic system information, disk speed along with network performance - tested from multiple locations across the world!
+## View basic system information, disk speed along with network performance - tested from locations in Sweden!
 
 
 ### Download the script:
