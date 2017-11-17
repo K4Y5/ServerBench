@@ -61,7 +61,7 @@ speed_vultr() {
     speed_test 'https://lon-gb-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, London, UK'
 }
 
-speed_linnode() {
+speed_linode() {
     speed_test 'http://speedtest.tokyo.linode.com/100MB-tokyo.bin' 'Linode, Tokyo, JP'
     speed_test 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
     speed_test 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
@@ -165,7 +165,7 @@ speed() {
     speed_eastlink
     speed_id3
     speed_leaseweb
-    speed_linnode
+    speed_linode
     speed_online_net
     speed_ovh
     speed_prometeus
