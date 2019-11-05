@@ -44,6 +44,7 @@ speed() {
     speed_test 'https://hnd-jp-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Tokyo, JP'
     speed_test 'http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin' 'Linode, Tokyo, JP'
     speed_test 'http://speedtest-blr1.digitalocean.com/100mb.test' 'DO, Bangalore, IN'
+    speed_test 'http://speedtest.mumbai1.linode.com/100MB-mumbai1.bin' 'Linode, Mumbai, IN'
     speed_test 'http://speedtest.che01.softlayer.com/downloads/test100.zip' 'Softlayer, Chennai, IN'
     speed_test 'https://sgp-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Singapore, SG'
     speed_test 'http://speedtest-sgp1.digitalocean.com/100mb.test' 'DO, Singapore, SG'
@@ -109,6 +110,7 @@ speed() {
     speed_test 'http://speedtest-tor1.digitalocean.com/100mb.test' 'DO, Toronto, CA'
     speed_test 'http://bhs.proof.ovh.net/files/100Mb.dat' 'OVH, Beauharnois, CA'
     speed_test 'http://speedtest2.eastlink.ca/superlarge.bin' 'EastLink, Canada, CA'
+    speed_test 'http://speedtest.toronto1.linode.com/100MB-toronto1.bin' 'Linode, Toronto, CA'
     speed_test 'http://speedtest.mon01.softlayer.com/downloads/test100.zip' 'Softlayer, Montreal, CA'
 }
 
