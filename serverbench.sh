@@ -42,7 +42,7 @@ speed_test_v6() {
 speed() {
     speed_test 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
     speed_test 'https://hnd-jp-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Tokyo, JP'
-    speed_test 'http://speedtest.tokyo.linode.com/100MB-tokyo.bin' 'Linode, Tokyo, JP'
+    speed_test 'http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin' 'Linode, Tokyo, JP'
     speed_test 'http://speedtest-blr1.digitalocean.com/100mb.test' 'DO, Bangalore, IN'
     speed_test 'http://speedtest.che01.softlayer.com/downloads/test100.zip' 'Softlayer, Chennai, IN'
     speed_test 'https://sgp-ping.vultr.com/vultr.com.100MB.bin' 'Vultr, Singapore, SG'
